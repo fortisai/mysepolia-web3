@@ -1,4 +1,4 @@
-# MySepolia Sample Polygon NFT Contract
+# MySepolia Sample NFT Mint DApp
 
 ## Prerequisites
 
