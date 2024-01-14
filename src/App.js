@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 import { Contract, BrowserProvider } from "ethers";
 import NFT from "./abi/msNFT.json";
 
-const NFT_CONTRACT_ADDRESS = "0xE2738972823EDfE29341050e6c5B5F8105b86CdB";
+const { REACT_APP_CONTRACT_ADDRESS } = process.env;
 
 function App() {
     const [isWalletInstalled, setIsWalletInstalled] = useState(false);
-    const [date, setDate] = useState("1992-08-31");
+    const [date, setDate] = useState("1999-12-31");
     const [zodiacSign, setZodiacSign] = useState(null);
 
     // state for whether the app is minting or not.
@@ -80,7 +80,7 @@ function App() {
         function initNFTContract() {
             const provider = new BrowserProvider(window.ethereum);
             provider.getSigner().then((signer) => {
-                setNFTContract(new Contract(NFT_CONTRACT_ADDRESS, NFT.abi, signer));
+                setNFTContract(new Contract(REACT_APP_CONTRACT_ADDRESS, NFT.abi, signer));
             }).catch((error) => {
                 console.error("Error initializing contract:", error);
             });
